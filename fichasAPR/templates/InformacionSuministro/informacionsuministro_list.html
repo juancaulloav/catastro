@@ -1,0 +1,36 @@
+
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+  <h1>Lista de Informaciones de Suministro</h1>
+  
+  <a href="{% url 'informacionsuministro_create' %}" class="btn btn-primary">Crear Información de Suministro</a>
+  
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Nombre Plantilla</th>
+        <th>Tipo Suministro</th>
+        <th>Número Tramo</th>
+        <th>Valor Tramos</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for informacion in informaciones_suministro %}
+        <tr>
+          <td>{{ informacion.nombre_plantilla }}</td>
+          <td>{{ informacion.tipo_suministro }}</td>
+          <td>{{ informacion.numero_tramo }}</td>
+          <td>{{ informacion.valor_tramos }}</td>
+          <td>
+            <a href="{% url 'informacionsuministro_update' informacion.pk %}" class="btn btn-sm btn-primary">Editar</a>
+            <a href="{% url 'informacionsuministro_delete' informacion.pk %}" class="btn btn-sm btn-danger">Eliminar</a>
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  
+{% endblock %}

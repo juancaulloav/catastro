@@ -1,0 +1,11 @@
+{% extends 'base.html' %} {% block content %}
+<h1>Red Detail</h1>
+<h2>{{ red.nombre_red }}</h2>
+<p>Longitud Red: {{ red.longitud_red }}</p>
+<p>Densidad Red: {{ red.densidad_red }}</p>
+<p>Material: {{ red.material }}</p>
+<p>Diametro Sistema Distribucion: {{ red.diametro_sistema_distribucion }}</p>
+<a href="{% url 'red_list' %}">Back to List</a>
+<a href="{% url 'red_update' red.pk %}">Edit</a>
+<a href="{% url 'red_delete' red.pk %}">Delete</a>
+{% endblock %}

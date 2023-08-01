@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Lista de Información de Pozos</h1>
+    <a href="{% url 'informacionpozos_create' %}" class="btn btn-primary">Crear Nuevo</a>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Plantilla de Información de Pozos</th>
+                <th>Tipos de Pozos</th>
+                <th>Profundidad de Pozos</th>
+                <th>Diámetro de Pozo</th>
+                <th>Materialidad de Pozo</th>
+                <th>Causalidad de Pozo</th>
+                <th>Estado de Pozo</th>
+                <th>Información de Abastecimiento</th>
+                <th>Información de Suministro</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for informacionpozo in informacionpozos %}
+            <tr>
+                <td>{{ informacionpozo.plantilla_informacion_pozos }}</td>
+                <td>{{ informacionpozo.tipos_pozos }}</td>
+                <td>{{ informacionpozo.profundidad_pozos }}</td>
+                <td>{{ informacionpozo.diametro_pozo }}</td>
+                <td>{{ informacionpozo.materialidad_pozo }}</td>
+                <td>{{ informacionpozo.causalidad_pozo }}</td>
+                <td>{{ informacionpozo.estado_pozo }}</td>
+                <td>{{ informacionpozo.informacion_abastecimiento }}</td>
+                <td>{{ informacionpozo.informacion_suministro }}</td>
+                <td>
+                    <a href="{% url 'informacionpozos_update' informacionpozo.pk %}" class="btn btn-primary btn-sm">Editar</a>
+                    <a href="{% url 'informacionpozos_delete' informacionpozo.pk %}" class="btn btn-danger btn-sm">Eliminar</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

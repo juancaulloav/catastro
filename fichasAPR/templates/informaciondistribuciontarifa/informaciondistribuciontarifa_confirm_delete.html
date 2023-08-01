@@ -1,0 +1,12 @@
+{% extends 'base.html' %} {% block content %}
+<h1>Delete Informacion Distribucion Tarifa</h1>
+<p>
+  Are you sure you want to delete the Informacion Distribucion Tarifa "{{
+  informaciondistribuciontarifa.nombre_plantilla }}"?
+</p>
+<form method="post">
+  {% csrf_token %}
+  <button type="submit">Delete</button>
+  <a href="{% url 'informaciondistribuciontarifa_list' %}">Cancel</a>
+</form>
+{% endblock %}

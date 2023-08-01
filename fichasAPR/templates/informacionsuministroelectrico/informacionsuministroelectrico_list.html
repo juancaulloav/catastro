@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1 class="mb-4">Información de Suministro Eléctrico</h1>
+  <div class=" mb-4">
+    <a href="{% url 'informacionsuministroelectrico_create' %}" class="btn btn-primary">Agregar nueva información de suministro eléctrico</a>
+  </div>
+
+  <table class="table">
+    <thead class="table-dark">
+      <tr>
+        <th>Nombre de la información de suministro</th>
+        <th>Paneles solares</th>
+        <th>Generador</th>
+        <th>Tipo de energía</th>
+        <th>Material</th>
+        <th>Información de Red de Distribución</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for informacion in informacionessuministroelectrico %}
+        <tr>
+          <td>{{ informacion.nombre_informacion_suministro }}</td>
+          <td>{% if informacion.paneles_solares %}Sí{% else %}No{% endif %}</td>
+          <td>{% if informacion.generador %}Sí{% else %}No{% endif %}</td>
+          <td>{{ informacion.tipo_energia }}</td>
+          <td>{{ informacion.material }}</td>
+          <td>{{ informacion.informacion_red_distribucion }}</td>
+          <td>
+            <a href="{% url 'informacionsuministroelectrico_update' informacion.id %}" class="btn btn-primary">Editar</a>
+            <a href="{% url 'informacionsuministroelectrico_delete' informacion.id %}" class="btn btn-danger">Eliminar</a>
+          </td>
+        </tr>
+      {% empty %}
+        <tr>
+          <td colspan="7">No hay información disponible.</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

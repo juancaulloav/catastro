@@ -1,0 +1,17 @@
+{% extends 'base.html' %} {% block content %}
+<h1>Informacion Pozos Detail</h1>
+<h2>{{ informacionpozos.plantilla_informacion_pozos }}</h2>
+<p>Tipos Pozos: {{ informacionpozos.tipos_pozos }}</p>
+<p>Profundidad Pozos: {{ informacionpozos.profundidad_pozos }}</p>
+<p>Diametro Pozo: {{ informacionpozos.diametro_pozo }}</p>
+<p>Materialidad Pozo: {{ informacionpozos.materialidad_pozo }}</p>
+<p>Causalidad Pozo: {{ informacionpozos.causalidad_pozo }}</p>
+<p>Estado Pozo: {{ informacionpozos.estado_pozo }}</p>
+<p>
+  Informacion Abastecimiento: {{ informacionpozos.informacion_abastecimiento }}
+</p>
+<p>Informacion Suministro: {{ informacionpozos.informacion_suministro }}</p>
+<a href="{% url 'informacionpozos_list' %}">Back to List</a>
+<a href="{% url 'informacionpozos_update' informacionpozos.pk %}">Edit</a>
+<a href="{% url 'informacionpozos_delete' informacionpozos.pk %}">Delete</a>
+{% endblock %}

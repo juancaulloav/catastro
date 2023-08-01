@@ -1,0 +1,21 @@
+{% extends 'base.html' %} {% block content %}
+<h1>Informacion Administrativa Detail</h1>
+<h2>{{ informacionadministrativa.plantilla_informacion_administrativa }}</h2>
+<p>Numero Arranques: {{ informacionadministrativa.numero_arranques }}</p>
+<p>Estado General: {{ informacionadministrativa.estado_general }}</p>
+<p>Estado Regulacion: {{ informacionadministrativa.estado_regulacion }}</p>
+<p>Estado Distribucion: {{ informacionadministrativa.estado_distribucion }}</p>
+<p>
+  Informacion Administrativa: {{
+  informacionadministrativa.informacion_administrativa }}
+</p>
+<a href="{% url 'informacionadministrativa_list' %}">Back to List</a>
+<a
+  href="{% url 'informacionadministrativa_update' informacionadministrativa.pk %}"
+  >Edit</a
+>
+<a
+  href="{% url 'informacionadministrativa_delete' informacionadministrativa.pk %}"
+  >Delete</a
+>
+{% endblock %}

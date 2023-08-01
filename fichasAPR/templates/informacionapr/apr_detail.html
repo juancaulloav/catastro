@@ -1,0 +1,171 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1 class="mb-4">Detalle del APR</h1>
+
+  <h2>Información del APR</h2>
+  <table class="table">
+    <thead class="table-dark">
+      <tr>
+        <th>Nombre Comité</th>
+        <th>Sector APR</th>
+        <th>Comuna APR</th>
+        <th>Nombre Presidente</th>
+        <th>Teléfono Presidente</th>
+        <th>Correo Presidente</th>
+        <th>Nombre Tesorero</th>
+        <th>Teléfono Tesorero</th>
+        <th>Correo Tesorero</th>
+        <th>Nombre Secretario</th>
+        <th>Teléfono Secretario</th>
+        <th>Correo Secretario</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{ informacionapr.nombre_comite }}</td>
+        <td>{{ informacionapr.sector_apr }}</td>
+        <td>{{ informacionapr.comuna_apr }}</td>
+        <td>{{ informacionapr.nombre_presidente }}</td>
+        <td>{{ informacionapr.telefono_presidente }}</td>
+        <td>{{ informacionapr.correo_presidente }}</td>
+        <td>{{ informacionapr.nombre_tesorero }}</td>
+        <td>{{ informacionapr.telefono_tesorero }}</td>
+        <td>{{ informacionapr.correo_tesorero }}</td>
+        <td>{{ informacionapr.nombre_secretario }}</td>
+        <td>{{ informacionapr.telefono_secretario }}</td>
+        <td>{{ informacionapr.correo_secretario }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>Información Administrativa</h2>
+  <table class="table">
+    <thead class="table-dark">
+      <tr>
+        <th>Plantilla Información Administrativa</th>
+        <th>Número de Arranques</th>
+        <th>Estado General</th>
+        <th>Estado Regulación</th>
+        <th>Estado Distribución</th>
+        <th>Información Administrativa</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{ informacionapr.informacion_administrativa.plantilla_informacion_administrativa }}</td>
+        <td>{{ informacionapr.informacion_administrativa.numero_arranques }}</td>
+        <td>{{ informacionapr.informacion_administrativa.estado_general }}</td>
+        <td>{{ informacionapr.informacion_administrativa.estado_regulacion }}</td>
+        <td>{{ informacionapr.informacion_administrativa.estado_distribucion }}</td>
+        <td>{{ informacionapr.informacion_administrativa.informacion_administrativa }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>Bombas</h2>
+  <table class="table">
+    <thead class="table-dark">
+      <tr>
+        <th>Nombre Bomba</th>
+        <th>Potencia HP</th>
+        <th>Marca</th>
+        <th>Tipo</th>
+        <th>Q Medida</th>
+        <th>Sistema</th>
+        <th>Volumen</th>
+        <th>Información General</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for bomba in informacionapr.informacion_abastecimiento.bombas_set.all %}
+        <tr>
+          <td>{{ bomba.nombre_bomba }}</td>
+          <td>{{ bomba.potencia_hp }}</td>
+          <td>{{ bomba.marca }}</td>
+          <td>{{ bomba.tipo }}</td>
+          <td>{{ bomba.q_medida }}</td>
+          <td>{{ bomba.sistema }}</td>
+          <td>{{ bomba.volumen }}</td>
+          <td>{{ bomba.informacion_general }}</td>
+        </tr>
+      {% empty %}
+        <tr>
+          <td colspan="8">No hay bombas registradas.</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  <h2>Red</h2>
+  <table class="table">
+    <thead class="table-dark">
+      <tr>
+        <th>Nombre Red</th>
+        <th>Longitud Red</th>
+        <th>Densidad Red</th>
+        <th>Material</th>
+        <th>Diametro Sistema Distribución</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{ informacionapr.informacion_abastecimiento.red.nombre_red }}</td>
+        <td>{{ informacionapr.informacion_abastecimiento.red.longitud_red }}</td>
+        <td>{{ informacionapr.informacion_abastecimiento.red.densidad_red }}</td>
+        <td>{{ informacionapr.informacion_abastecimiento.red.material }}</td>
+        <td>{{ informacionapr.informacion_abastecimiento.red.diametro_sistema_distribucion }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>Información de Suministro Eléctrico</h2>
+  <table class="table">
+    <thead class="table-dark">
+      <tr>
+        <th>Nombre Información Suministro</th>
+        <th>Paneles Solares</th>
+        <th>Generador</th>
+        <th>Tipo Energía</th>
+        <th>Material</th>
+        <th>Información Red Distribución</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{ informacionapr.informacion_distribucion_tarifa.informacion_suministro.nombre_informacion_suministro }}</td>
+        <td>{{ informacionapr.informacion_distribucion_tarifa.informacion_suministro.paneles_solares }}</td>
+        <td>{{ informacionapr.informacion_distribucion_tarifa.informacion_suministro.generador }}</td>
+        <td>{{ informacionapr.informacion_distribucion_tarifa.informacion_suministro.tipo_energia }}</td>
+        <td>{{ informacionapr.informacion_distribucion_tarifa.informacion_suministro.material }}</td>
+        <td>{{ informacionapr.informacion_distribucion_tarifa.red }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>Información de Distribución y Tarifa</h2>
+  <table class="table">
+    <thead class="table-dark">
+      <tr>
+        <th>Nombre Plantilla</th>
+        <th>Planos</th>
+        <th>Pruebas de Bombeo</th>
+        <th>Diseño de Tratamiento</th>
+        <th>Muestra NCH409_1</th>
+        <th>Muestra NCH409_2</th>
+        <th>Información Extra</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{ informacionapr.informacion_distribucion_tarifa.nombre_plantilla }}</td>
+        <td>{{ informacionapr.informacion_distribucion_tarifa.planos }}</td>
+        <td>{{ informacionapr.informacion_distribucion_tarifa.pruebas_bombeo }}</td>
+        <td>{{ informacionapr.informacion_distribucion_tarifa.diseño_tratamiento }}</td>
+        <td>{{ informacionapr.informacion_distribucion_tarifa.muestra_nch409_1 }}</td>
+        <td>{{ informacionapr.informacion_distribucion_tarifa.muestra_nch409_2 }}</td>
+        <td>{{ informacionapr.informacion_distribucion_tarifa.informacion_extra }}</td>
+      </tr>
+    </tbody>
+  </table>
+{% endblock %}

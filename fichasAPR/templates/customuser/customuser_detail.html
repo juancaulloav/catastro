@@ -1,0 +1,12 @@
+{% extends 'base.html' %} {% block content %}
+<h1>Custom User Detail</h1>
+<h2>{{ customuser.username }}</h2>
+<p>Nombre: {{ customuser.nombre }}</p>
+<p>Rut: {{ customuser.rut }}</p>
+<p>Correo: {{ customuser.correo }}</p>
+<p>Teléfono: {{ customuser.telefono }}</p>
+<p>Rol de Usuario: {{ customuser.rol_usuario }}</p>
+<a href="{% url 'customuser_list' %}">Back to List</a>
+<a href="{% url 'customuser_update' customuser.pk %}">Edit</a>
+<a href="{% url 'customuser_delete' customuser.pk %}">Delete</a>
+{% endblock %}

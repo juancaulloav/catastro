@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="text-center">
+    <h1>Listado de la información de su apr</h1>
+    <h3 class ="mb-4">Para información mas precisa, navegue por las distintas opciones del menu</h3>
+
+
+
+    {% for informacionapr in informaciones_apr %}
+        <h1>{{ informacionapr.nombre_comite }}</h1>
+        <p><strong>Sector APR:</strong> {{ informacionapr.sector_apr }}</p>
+        <p><strong>Comuna APR:</strong> {{ informacionapr.comuna_apr }}</p>
+        <p><strong>Información Administrativa:</strong> {{ informacionapr.informacion_administrativa.plantilla_informacion_administrativa }}</p>
+        <p><strong>Información Abastecimiento:</strong> {{ informacionapr.informacion_abastecimiento.nombre_plantilla }}</p>
+        <p><strong>Información Distribución Tarifa:</strong> {{ informacionapr.informacion_distribucion_tarifa.nombre_plantilla }}</p>
+        <p><strong>Nombre Presidente:</strong> {{ informacionapr.nombre_presidente }}</p>
+        <p><strong>Teléfono Presidente:</strong> {{ informacionapr.telefono_presidente }}</p>
+        <p><strong>Correo Presidente:</strong> {{ informacionapr.correo_presidente }}</p>
+        <p><strong>Nombre Tesorero:</strong> {{ informacionapr.nombre_tesorero }}</p>
+        <p><strong>Teléfono Tesorero:</strong> {{ informacionapr.telefono_tesorero }}</p>
+        <p><strong>Correo Tesorero:</strong> {{ informacionapr.correo_tesorero }}</p>
+        <p><strong>Nombre Secretario:</strong> {{ informacionapr.nombre_secretario }}</p>
+        <p><strong>Teléfono Secretario:</strong> {{ informacionapr.telefono_secretario }}</p>
+        <p><strong>Correo Secretario:</strong> {{ informacionapr.correo_secretario }}</p>
+        <h2><strong>Plantilla Información Administrativa:</strong> {{ informacionapr.informacion_administrativa.plantilla_informacion_administrativa }}</h2>
+        <p><strong>Número de Arranques:</strong> {{ informacionapr.informacion_administrativa.numero_arranques }}</p>
+        <p><strong>Estado General:</strong> {{ informacionapr.informacion_administrativa.estado_general }}</p>
+        <p><strong>Estado Regulación:</strong> {{ informacionapr.informacion_administrativa.estado_regulacion }}</p>
+        <p><strong>Estado Distribución:</strong> {{ informacionapr.informacion_administrativa.estado_distribucion }}</p>
+        <p><strong>Información Administrativa:</strong> {{ informacionapr.informacion_administrativa.informacion_administrativa }}</p>
+        <p><strong>Usuario:</strong> {{ informacionapr.informacion_administrativa.usuario }}</p>
+        <p><strong>Plantilla Información Abastecimiento:</strong> {{ informacionapr.informacion_abastecimiento.nombre_plantilla }}</p>
+        <p><strong>Frecuencia Camión Aljibe:</strong> {{ informacionapr.informacion_abastecimiento.frecuencia_camion_aljibe }}</p>
+        <p><strong>Volumen Camión Aljibe:</strong> {{ informacionapr.informacion_abastecimiento.volumen_camion_aljibe }}</p>
+        <p><strong>Información General:</strong> {{ informacionapr.informacion_abastecimiento.informacion_general }}</p>
+        <h3><strong>Plantilla Información Distribución Tarifa:</strong> {{ informacionapr.informacion_distribucion_tarifa.nombre_plantilla }}</h3>
+        <p><strong>Planos:</strong> {{ informacionapr.informacion_distribucion_tarifa.planos }}</p>
+        <p><strong>Pruebas de Bombeo:</strong> {{ informacionapr.informacion_distribucion_tarifa.pruebas_bombeo }}</p>
+        <p><strong>Diseño de Tratamiento:</strong> {{ informacionapr.informacion_distribucion_tarifa.diseño_tratamiento }}</p>
+        <p><strong>Muestra NCH409_1:</strong> {{ informacionapr.informacion_distribucion_tarifa.muestra_nch409_1 }}</p>
+        <p><strong>Muestra NCH409_2:</strong> {{ informacionapr.informacion_distribucion_tarifa.muestra_nch409_2 }}</p>
+        <p><strong>Bombas:</strong> {{ informacionapr.informacion_distribucion_tarifa.bombas }}</p>
+        <p><strong>Red:</strong> {{ informacionapr.informacion_distribucion_tarifa.red }}</p>
+        <p><strong>Información Extra:</strong> {{ informacionapr.informacion_distribucion_tarifa.informacion_extra }}</p>
+<br>
+    {% endfor %}
+
+</div>
+{% endblock %}

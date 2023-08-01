@@ -1,0 +1,27 @@
+{% extends 'base.html' %} {% block content %}
+<h1>Informacion Suministro Electrico Detail</h1>
+<h2>{{ informacionsuministroelectrico.nombre_informacion_suministro }}</h2>
+<p>
+  Paneles Solares: {% if informacionsuministroelectrico.paneles_solares %}Yes{%
+  else %}No{% endif %}
+</p>
+<p>
+  Generador: {% if informacionsuministroelectrico.generador %}Yes{% else %}No{%
+  endif %}
+</p>
+<p>Tipo Energia: {{ informacionsuministroelectrico.tipo_energia }}</p>
+<p>Material: {{ informacionsuministroelectrico.material }}</p>
+<p>
+  Informacion Red Distribucion: {{
+  informacionsuministroelectrico.informacion_red_distribucion }}
+</p>
+<a href="{% url 'informacionsuministroelectrico_list' %}">Back to List</a>
+<a
+  href="{% url 'informacionsuministroelectrico_update' informacionsuministroelectrico.pk %}"
+  >Edit</a
+>
+<a
+  href="{% url 'informacionsuministroelectrico_delete' informacionsuministroelectrico.pk %}"
+  >Delete</a
+>
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends 'base.html' %} {% block content %}
+<h1>Delete Custom User</h1>
+<p>
+  Are you sure you want to delete the Custom User "{{ customuser.nombre }}"?
+</p>
+<form method="post">
+  {% csrf_token %}
+  <button type="submit">Delete</button>
+  <a href="{% url 'customuser_list' %}">Cancel</a>
+</form>
+{% endblock %}

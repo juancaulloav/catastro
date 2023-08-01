@@ -1,0 +1,16 @@
+{% extends 'base.html' %} {% block content %}
+<h1>Informacion Distribucion Tarifa Detail</h1>
+<h2>{{ informaciondistribuciontarifa.nombre_plantilla }}</h2>
+<p>Bombas: {{ informaciondistribuciontarifa.bombas }}</p>
+<p>Red: {{ informaciondistribuciontarifa.red }}</p>
+<p>Informacion Extra: {{ informaciondistribuciontarifa.informacion_extra }}</p>
+<a href="{% url 'informaciondistribuciontarifa_list' %}">Back to List</a>
+<a
+  href="{% url 'informaciondistribuciontarifa_update' informaciondistribuciontarifa.pk %}"
+  >Edit</a
+>
+<a
+  href="{% url 'informaciondistribuciontarifa_delete' informaciondistribuciontarifa.pk %}"
+  >Delete</a
+>
+{% endblock %}

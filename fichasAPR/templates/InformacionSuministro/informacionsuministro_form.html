@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<main class="text-center">
+  <h1 class="mt-4 mb-4">Create/Update Informacion Suministro</h1>
+  <form method="post" class="mt-4 mb-4">
+    {% csrf_token %}
+    <div class="form-group mt-4 mb-4">
+      <label for="{{ form.nombre_plantilla.id_for_label }}">Nombre Plantilla:</label>
+      {{ form.nombre_plantilla }}
+    </div>
+    <div class="form-group mt-4 mb-4">
+      <label for="{{ form.tipo_suministro.id_for_label }}">Tipo Suministro:</label>
+      {{ form.tipo_suministro }}
+    </div>
+    <div class="form-group mt-4 mb-4">
+      <label for="{{ form.numero_tramo.id_for_label }}">Número Tramo:</label>
+      {{ form.numero_tramo }}
+    </div>
+    <div class="form-group mt-4 mb-4">
+      <label for="{{ form.valor_tramos.id_for_label }}">Valor Tramos:</label>
+      {{ form.valor_tramos }}
+    </div>
+    <button type="submit" class="btn btn-primary mt-4">Save</button>
+  </form>
+</main>
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends 'base.html' %} {% block content %}
+<h1>Bombas Detail</h1>
+<h2>{{ bomba.nombre_bomba }}</h2>
+<p>Potencia HP: {{ bomba.potencia_hp }}</p>
+<p>Marca: {{ bomba.marca }}</p>
+<p>Tipo: {{ bomba.tipo }}</p>
+<p>Q Medida: {{ bomba.q_medida }}</p>
+<p>Sistema: {{ bomba.sistema }}</p>
+<p>Volumen: {{ bomba.volumen }}</p>
+<p>Informacion General: {{ bomba.informacion_general }}</p>
+<a href="{% url 'bombas_list' %}">Back to List</a>
+<a href="{% url 'bombas_update' bomba.pk %}">Edit</a>
+<a href="{% url 'bombas_delete' bomba.pk %}">Delete</a>
+{% endblock %}

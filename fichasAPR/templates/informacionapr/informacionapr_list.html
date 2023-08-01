@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Lista de Información de APR</h1>
+    <a href="{% url 'informacionapr_create' %}" class="btn btn-primary">Crear Nuevo</a>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nombre Comité</th>
+                <th>Sector APR</th>
+                <th>Comuna APR</th>
+                <th>Información Administrativa</th>
+                <th>Información Abastecimiento</th>
+                <th>Información Distribución Tarifa</th>
+                <th>Nombre Presidente</th>
+                <th>Teléfono Presidente</th>
+                <th>Correo Presidente</th>
+                <th>Nombre Tesorero</th>
+                <th>Teléfono Tesorero</th>
+                <th>Correo Tesorero</th>
+                <th>Nombre Secretario</th>
+                <th>Teléfono Secretario</th>
+                <th>Correo Secretario</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for informacionapr in informacionapr %}
+            <tr>
+                <td>{{ informacionapr.nombre_comite }}</td>
+                <td>{{ informacionapr.sector_apr }}</td>
+                <td>{{ informacionapr.comuna_apr }}</td>
+                <td>{{ informacionapr.informacion_administrativa }}</td>
+                <td>{{ informacionapr.informacion_abastecimiento }}</td>
+                <td>{{ informacionapr.informacion_distribucion_tarifa }}</td>
+                <td>{{ informacionapr.nombre_presidente }}</td>
+                <td>{{ informacionapr.telefono_presidente }}</td>
+                <td>{{ informacionapr.correo_presidente }}</td>
+                <td>{{ informacionapr.nombre_tesorero }}</td>
+                <td>{{ informacionapr.telefono_tesorero }}</td>
+                <td>{{ informacionapr.correo_tesorero }}</td>
+                <td>{{ informacionapr.nombre_secretario }}</td>
+                <td>{{ informacionapr.telefono_secretario }}</td>
+                <td>{{ informacionapr.correo_secretario }}</td>
+                <td>
+                    <a href="{% url 'informacionapr_update' informacionapr.pk %}" class="btn btn-primary btn-sm">Editar</a>
+                    <a href="{% url 'informacionapr_delete' informacionapr.pk %}" class="btn btn-danger btn-sm">Eliminar</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

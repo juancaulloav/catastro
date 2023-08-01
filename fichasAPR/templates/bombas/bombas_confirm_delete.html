@@ -1,0 +1,9 @@
+{% extends 'base.html' %} {% block content %}
+<h1>Delete Bombas</h1>
+<p>Are you sure you want to delete the Bombas "{{ bomba.nombre_bomba }}"?</p>
+<form method="post">
+  {% csrf_token %}
+  <button type="submit">Delete</button>
+  <a href="{% url 'bombas_list' %}">Cancel</a>
+</form>
+{% endblock %}

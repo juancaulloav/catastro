@@ -1,0 +1,14 @@
+{% extends 'base.html' %} {% block content %}
+<h1>Informacion Suministro Detail</h1>
+<h2>{{ informacionsuministro.nombre_plantilla }}</h2>
+<p>Tipo Suministro: {{ informacionsuministro.tipo_suministro }}</p>
+<p>Numero Tramo: {{ informacionsuministro.numero_tramo }}</p>
+<p>Valor Tramos: {{ informacionsuministro.valor_tramos }}</p>
+<a href="{% url 'informacionsuministro_list' %}">Back to List</a>
+<a href="{% url 'informacionsuministro_update' informacionsuministro.pk %}"
+  >Edit</a
+>
+<a href="{% url 'informacionsuministro_delete' informacionsuministro.pk %}"
+  >Delete</a
+>
+{% endblock %}

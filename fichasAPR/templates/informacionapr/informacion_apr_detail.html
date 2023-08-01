@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Detalles de Información APR</title>
+  </head>
+  <body>
+    <h1>Detalles de Información APR</h1>
+    <h2>Información APR</h2>
+    <p>Nombre Comité: {{ informacion_apr.nombre_comite }}</p>
+    <p>Sector APR: {{ informacion_apr.sector_apr }}</p>
+    <p>Comuna APR: {{ informacion_apr.comuna_apr }}</p>
+    <h2>Información Administrativa</h2>
+    <p>
+      Plantilla Información Administrativa: {{
+      informacion_administrativa.plantilla_informacion_administrativa }}
+    </p>
+    <p>
+      Número de Arranques: {{ informacion_administrativa.numero_arranques }}
+    </p>
+    <p>Estado General: {{ informacion_administrativa.estado_general }}</p>
+    <p>
+      Estado de Regulación: {{ informacion_administrativa.estado_regulacion }}
+    </p>
+    <p>
+      Estado de Distribución: {{ informacion_administrativa.estado_distribucion
+      }}
+    </p>
+    <p>
+      Información Administrativa: {{
+      informacion_administrativa.informacion_administrativa }}
+    </p>
+    <h2>Información de Abastecimiento</h2>
+    <p>Nombre Plantilla: {{ informacion_abastecimiento.nombre_plantilla }}</p>
+    <p>
+      Frecuencia Camión Aljibe: {{
+      informacion_abastecimiento.frecuencia_camion_aljibe }}
+    </p>
+    <p>
+      Volumen Camión Aljibe: {{ informacion_abastecimiento.volumen_camion_aljibe
+      }}
+    </p>
+    <p>
+      Información General: {{ informacion_abastecimiento.informacion_general }}
+    </p>
+    <h2>Información de Distribución Tarifa</h2>
+    <p>
+      Nombre Plantilla: {{ informacion_distribucion_tarifa.nombre_plantilla }}
+    </p>
+    <p>Planos: {{ informacion_distribucion_tarifa.planos.url }}</p>
+    <p>
+      Pruebas de Bombeo: {{ informacion_distribucion_tarifa.pruebas_bombeo.url
+      }}
+    </p>
+    <p>
+      Diseño de Tratamiento: {{
+      informacion_distribucion_tarifa.diseño_tratamiento.url }}
+    </p>
+    <p>
+      Muestra NCH409_1: {{ informacion_distribucion_tarifa.muestra_nch409_1.url
+      }}
+    </p>
+    <p>
+      Muestra NCH409_2: {{ informacion_distribucion_tarifa.muestra_nch409_2.url
+      }}
+    </p>
+    <h3>Bombas</h3>
+    <p>Nombre de Bomba: {{ bombas.nombre_bomba }}</p>
+    <p>Potencia (HP): {{ bombas.potencia_hp }}</p>
+    <p>Marca: {{ bombas.marca }}</p>
+    <p>Tipo: {{ bombas.tipo }}</p>
+    <p>Q Medida: {{ bombas.q_medida }}</p>
+    <p>Sistema: {{ bombas.sistema }}</p>
+    <p>Volumen: {{ bombas.volumen }}</p>
+    <p>Información General de Bombas: {{ bombas.informacion_general }}</p>
+    <h3>Red</h3>
+    <p>Nombre de Red: {{ red.nombre_red }}</p>
+    <p>Longitud de Red: {{ red.longitud_red }}</p>
+    <p>Densidad de Red: {{ red.densidad_red }}</p>
+    <p>Material: {{ red.material }}</p>
+    <p>
+      Diametro del Sistema de Distribución: {{ red.diametro_sistema_distribucion
+      }}
+    </p>
+    <h2>Información de Suministro</h2>
+    <p>Nombre de Plantilla: {{ informacion_suministro.nombre_plantilla }}</p>
+    <p>Tipo de Suministro: {{ informacion_suministro.tipo_suministro }}</p>
+    <p>Número de Tramo: {{ informacion_suministro.numero_tramo }}</p>
+    <p>Valor de Tramos: {{ informacion_suministro.valor_tramos }}</p>
+    <h2>Información de Pozos</h2>
+    <p>
+      Plantilla de Información de Pozos: {{
+      informacion_pozos.plantilla_informacion_pozos }}
+    </p>
+    <p>Tipos de Pozos: {{ informacion_pozos.tipos_pozos }}</p>
+    <p>Profundidad de Pozos: {{ informacion_pozos.profundidad_pozos }}</p>
+    <p>Diametro de Pozo: {{ informacion_pozos.diametro_pozo }}</p>
+    <p>Materialidad de Pozo: {{ informacion_pozos.materialidad_pozo }}</p>
+    <p>Causalidad de Pozo: {{ informacion_pozos.causalidad_pozo }}</p>
+    <p>Estado de Pozo: {{ informacion_pozos.estado_pozo }}</p>
+    <h3>Información de Abastecimiento</h3>
+    <p>
+      Información de Abastecimiento: {{
+      informacion_pozos.informacion_abastecimiento }}
+    </p>
+    <h3>Información de Suministro</h3>
+    <p>
+      Información de Suministro: {{ informacion_pozos.informacion_suministro }}
+    </p>
+  </body>
+</html>

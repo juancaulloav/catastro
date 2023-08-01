@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<main class="container text-center mt-6">
+  <h1>Detalles de la Información APR</h1>
+
+  <h2>Información APR</h2>
+  <h3>Nombre del comité: {{ apr.nombre_comite }}</h3>
+  <p>Sector: {{ apr.sector_apr }}</p>
+  <p>Comuna: {{ apr.comuna_apr }}</p>
+  <p>Nombre del presidente: {{ apr.nombre_presidente }}</p>
+  <p>Telefono del presidente: {{ apr.telefono_presidente }}</p>
+  <p>Correo del presidente: {{ apr.correo_presidente }}</p>
+  <p>Nombre del tesorero: {{ apr.nombre_tesorero }}</p>
+  <p>Telefono del tesorero: {{ apr.telefono_tesorero }}</p>
+  <p>Correo del tesorero: {{ apr.correo_tesorero }}</p>
+  <p>Nombre del secretario: {{ apr.nombre_secretario }}</p>
+  <p>Telefono del secretario: {{ apr.telefono_secretario }}</p>
+  <p>Correo del secretario: {{ apr.correo_secretario }}</p>
+
+  <h2>Información Administrativa del Comité</h2>
+  {% if apr.informacion_administrativa %}
+    <p>Plantilla de información administrativa: {{ apr.informacion_administrativa.plantilla_informacion_administrativa }}</p>
+    <p>Número de arranques: {{ apr.informacion_administrativa.numero_arranques }}</p>
+    <p>Estado general: {{ apr.informacion_administrativa.estado_general }}</p>
+    <p>Estado de regulación: {{ apr.informacion_administrativa.estado_regulacion }}</p>
+    <p>Estado de distribución: {{ apr.informacion_administrativa.estado_distribucion }}</p>
+    <p>Información administrativa: {{ apr.informacion_administrativa.informacion_administrativa }}</p>
+    <p>Usuario: {{ apr.informacion_administrativa.usuario }}</p>
+  {% endif %}
+
+  <h2>Información de Abastecimiento</h2>
+  {% if apr.informacion_abastecimiento %}
+    <p>Nombre de la plantilla de abastecimiento: {{ apr.informacion_abastecimiento.nombre_plantilla }}</p>
+    <p>Frecuencia de llegada de camion aljibe en días: {{ apr.informacion_abastecimiento.frecuencia_camion_aljibe }}</p>
+    <p>Volumen en litros del camion aljibe: {{ apr.informacion_abastecimiento.volumen_camion_aljibe }}</p>
+    <p>Información general de abastecimiento: {{ apr.informacion_abastecimiento.informacion_general }}</p>
+    <!-- Mostrar el resto de los campos de Abastecimiento según tus necesidades -->
+  {% endif %}
+
+  <h2>Información de los pozos del APR</h2>
+  {% for pozo in apr.informacionpozos_set.all %}
+    <h3>Información del pozo</h3>
+    <p>Plantilla de información de pozos: {{ pozo.plantilla_informacion_pozos }}</p>
+    <p>Tipos de pozos: {{ pozo.tipos_pozos }}</p>
+    <p>Profundidad del pozo: {{ pozo.profundidad_pozos }}</p>
+    <p>Diametro del pozo: {{ pozo.diametro_pozo }}</p>
+    <p>Materialidad del pozo: {{ pozo.materialidad_pozo }}</p>
+    <p>Causalidad del pozo: {{ pozo.causalidad_pozo }}</p>
+    <p>Estado del pozo: {{ pozo.estado_pozo }}</p>
+    <p>Información de abastecimiento: {{ pozo.informacion_abastecimiento.nombre_plantilla }}</p>
+    <p>Información de suministro: {{ pozo.informacion_suministro.nombre_plantilla }}</p>
+  {% empty %}
+    <p>No se encontró información de pozos para este APR.</p>
+  {% endfor %}
+
+  <h2>Información de Suministro Eléctrico relacionado al APR</h2>
+  {% for suministro_electrico in apr.informacionsuministroelectrico_set.all %}
+    <h3>Información de suministro eléctrico</h3>
+    <p>Nombre de la información de suministro: {{ suministro_electrico.nombre_informacion_suministro }}</p>
+    <p>Paneles solares: {{ suministro_electrico.paneles_solares }}</p>
+    <p>Generador: {{ suministro_electrico.generador }}</p>
+    <p>Tipo de energía: {{ suministro_electrico.tipo_energia }}</p>
+    <p>Material: {{ suministro_electrico.material }}</p>
+    <p>Información de red de distribución: {{ suministro_electrico.informacion_red_distribucion.nombre_red }}</p>
+  {% endfor %}
+
+  <h2>Información de Distribución y Tarifa del APR</h2>
+  {% if apr.informacion_distribucion_tarifa %}
+    <p>Nombre de la plantilla de distribución y tarifas: {{ apr.informacion_distribucion_tarifa.nombre_plantilla }}</p>
+    <p>Planos de distribución: <a href="{{ apr.informacion_distribucion_tarifa.planos.url }}">{{ apr.informacion_distribucion_tarifa.planos.name }}</a></p>
+    <p>Pruebas de bombeo: <a href="{{ apr.informacion_distribucion_tarifa.pruebas_bombeo.url }}">{{ apr.informacion_distribucion_tarifa.pruebas_bombeo.name }}</a></p>
+    <p>Diseño de tratamiento: <a href="{{ apr.informacion_distribucion_tarifa.diseño_tratamiento.url }}">{{ apr.informacion_distribucion_tarifa.diseño_tratamiento.name }}</a></p>
+    <p>Muestra NCH409/1: <a href="{{ apr.informacion_distribucion_tarifa.muestra_nch409_1.url }}">{{ apr.informacion_distribucion_tarifa.muestra_nch409_1.name }}</a></p>
+    <p>Muestra NCH409/2: <a href="{{ apr.informacion_distribucion_tarifa.muestra_nch409_2.url }}">{{ apr.informacion_distribucion_tarifa.muestra_nch409_2.name }}</a></p>
+    <p>Bombas: {{ apr.informacion_distribucion_tarifa.bombas.nombre_bomba }}</p>
+    <p>Red: {{ apr.informacion_distribucion_tarifa.red.nombre_red }}</p>
+    <p>Información extra: {{ apr.informacion_distribucion_tarifa.informacion_extra }}</p>
+  {% endif %}
+  
+</main>
+{% endblock %}

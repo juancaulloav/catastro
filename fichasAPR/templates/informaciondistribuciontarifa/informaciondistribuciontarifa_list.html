@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1 class="mb-4">Listado Informacion de distribucion y tarifas</h1>
+<div class="mb-4">
+    <a href="{% url 'informaciondistribuciontarifa_create' %}" class="btn btn-primary">Agregar plantilla de distribucion y tarifas</a>
+</div>
+<table class="table">
+    <thead class="table-dark">
+        <tr>
+            <th>Nombre de la Plantilla</th>
+            <th>Planos</th>
+            <th>Pruebas de Bombeo</th>
+            <th>Diseño de Tratamiento</th>
+            <th>Muestra NCH409_1</th>
+            <th>Muestra NCH409_2</th>
+            <th>Bombas</th>
+            <th>Red</th>
+            <th>Información Extra</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for informacion_tarifa in informaciones_distribucion_tarifa %}
+            <tr>
+                <td>{{ informacion_tarifa.nombre_plantilla }}</td>
+                <td>{{ informacion_tarifa.planos }}</td>
+                <td>{{ informacion_tarifa.pruebas_bombeo }}</td>
+                <td>{{ informacion_tarifa.diseño_tratamiento }}</td>
+                <td>{{ informacion_tarifa.muestra_nch409_1 }}</td>
+                <td>{{ informacion_tarifa.muestra_nch409_2 }}</td>
+                <td>{{ informacion_tarifa.bombas }}</td>
+                <td>{{ informacion_tarifa.red }}</td>
+                <td>{{ informacion_tarifa.informacion_extra }}</td>
+                <td>
+                    <a href="{% url 'informaciondistribuciontarifa_update' informacion_tarifa.pk %}" class="btn btn-primary">Editar</a>
+                    <a href="{% url 'informaciondistribuciontarifa_delete' informacion_tarifa.pk %}" class="btn btn-danger">Eliminar</a>
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
